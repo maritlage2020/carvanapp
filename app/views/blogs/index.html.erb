@@ -1,6 +1,6 @@
-<header>
+  <header>
     <h1 class="headline">
-      <a href="#">CARAVAN</a>
+      <%= link_to "CARAVAN", blogs_path %>
     </h1>
     <div class="social">
       <i class="fa fa-facebook-square"></i>
@@ -8,17 +8,17 @@
       <i class="fa fa-instagram"></i>
     </div>
   </header>
- 
+  
   <nav>
     <ul class="nav-list">
       <li class="nav-list-item">
-        <a href="#">Home</a>
+        <%= link_to "Home", blogs_path %>
       </li>
       <li class="nav-list-item">About</li>
       <li class="nav-list-item">Topic</li>
     </ul>
   </nav>
- 
+
   <div class="main-visual">
     <div class="main-visual-content">
       <p class="main-visual-text">
@@ -31,21 +31,23 @@
       </p>
     </div>
   </div>
- 
+
   <main class="clearfix">
     <section class="blog">
       <h2 class="blog-headline">Recent Blogs</h2>
       <div class="blog-box">
         <% @blogs.each do |blog| %>
           <div class="blog-item clearfix">
-            <div class="blog-image"><%= image_tag('img/forest.jpg', class: 'blog-image') %></div>
-            <section class="blog-text">
-              <h3 class="blog-text-headline"><%= link_to blog.title, blog_path(blog) %></h3>
-              <p class="blog_date"><%= blog.created_at %></p>
-              <span classs="category"><%= blog.category %></span>
-            </section>
+            <div class="blog-image"></div>
+              <section class="blog-text">
+                <h3 class="blog-text-headline"><%= link_to blog.title, blog_path(blog) %></h3>
+                <p class="blog-date"><%= blog.created_at %></p>
+                <span class="category"><%= blog.category %></span>
+              </section>
+            </div>
           </div>
-      <% end %>
+        <% end %>
+      </div>
       <div class="pagination">
         <p><<</p>
         <p><</p>
@@ -67,6 +69,7 @@
           <p class="popular-text">How humans could evolve<br>to survive in space</p>
         </div>
       </section>
+
       <section class="instagram">
         <h2 class="instagram-headline">Instagram</h2>
         <div class="sidebar-contents clearfix">
@@ -78,9 +81,10 @@
           <div class="instagram-box"></div>
         </div>
       </section>
+
       <section class="categories">
-        <h2 class="categories-headline">Categories</h2>
-        <div class="sidebar-contents">
+        <h2 class="categories-headline">categories</h2>
+        <div class="sidebar_contents">
           <p class="categories-text">Technology(15)</p>
           <p class="categories-text">Business(23)</p>
           <p class="categories-text">Entertainment(12)</p>
@@ -91,8 +95,8 @@
         </div>
       </section>
     </div>
-  </main>
- 
+  </main> 
+
   <footer>
     <p class="footer-text">© All rights recerved by Infratop.Inc.</p>
   </footer>

@@ -1,14 +1,12 @@
 class BlogsController < ApplicationController
   def index
+  	@blogs =Blog.all
   end
 
   def show
   	@blog = Blog.find(params[:id])
   end
 
-  def index
-  	@blogs =Blog.all
-  end
 
   def new
   	@blog = Blog.new
@@ -20,14 +18,8 @@ class BlogsController < ApplicationController
   	redirect_to blogs_path
   end
 
-  def destroy
-    blog = Blog.find(params[:id])
-    blog.destroy
-    redirect_to blogs_path
-
-
   def edit
-  	@blog = Blog.find(params[:id])
+    @blog = Blog.find(params[:id])
   end
 
   def update
@@ -35,9 +27,16 @@ class BlogsController < ApplicationController
   	blog.update(blog_params)
   	redirect_to blog_path(blog)
   end
-private
+
+  def destroy
+    blog = Blog.find(params[:id])
+    blog.destroy
+    redirect_to blogs_path
+  end
+
+  private
+  
   def blog_params
   	params.require(:blog).permit(:title, :category, :body)
   end
 end
-
